@@ -23,11 +23,4 @@ This is my first attempt at combining my front end knowledge and javascript know
 - **Database:** MongoDB Atlas (for account storage)
 
 ---
-
-## Setup
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/YOUR-USERNAME/healthbot-ai.git
-   cd healthbot-ai
 # healthbot-ai
