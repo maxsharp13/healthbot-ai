@@ -1,0 +1,21 @@
+{
+  "name": "healthai",
+  "version": "1.0.0",
+  "description": "**HealthBot** is an AI-powered virtual assistant that helps users understand possible causes of their symptoms and suggests which type of doctor to contact.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxsharp13/healthbot-ai.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^3.3.2",
+    "express": "^4.18.2"
+  }
+}
