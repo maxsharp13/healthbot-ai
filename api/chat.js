@@ -1,6 +1,6 @@
-const fetch = require("node-fetch");
+import fetch from "node-fetch";
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   const { symptoms } = req.body;
 
   try {
@@ -8,7 +8,7 @@ module.exports = async function handler(req, res) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
+        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`
       },
       body: JSON.stringify({
         model: "gpt-4o-mini",
@@ -16,9 +16,9 @@ module.exports = async function handler(req, res) {
           {
             role: "system",
             content: `
-              You are healthBot — a friendly and supportive assistant.
-              Use <strong> for symptoms and <span class="doctor"></span> for doctor recommendations.
-              Keep replies compact and chat-style.
+              You are HealthBot — a friendly supportive assistant.
+              Use <strong> for symptoms and <span class="doctor"></span> for doctor suggestions.
+              Keep answers compact and chat-style.
             `
           },
           {
@@ -26,7 +26,7 @@ module.exports = async function handler(req, res) {
             content: `Symptoms: ${symptoms}`
           }
         ]
-      }),
+      })
     });
 
     const data = await response.json();
@@ -34,8 +34,9 @@ module.exports = async function handler(req, res) {
     res.status(200).json({
       reply: data.choices[0].message.content
     });
+
   } catch (error) {
     console.error(error);
     res.status(500).json({ reply: "Server error." });
   }
-};
+}

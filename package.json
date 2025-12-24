@@ -2,6 +2,7 @@
   "name": "healthai",
   "version": "1.0.0",
   "description": "HealthBot – AI-powered assistant for symptom guidance.",
+  "type": "module",
   "scripts": {
     "start": "vercel dev"
   },
