@@ -7,7 +7,6 @@
 body {
   font-family: "Inter", sans-serif;
   background-color: #413f3d;
-  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,7 +14,6 @@ body {
   overflow: hidden;
 }
 
-/* ----- CHAT WRAPPER ----- */
 .chat-wrapper {
   display: flex;
   flex-direction: column;
@@ -28,7 +26,6 @@ body {
   overflow: hidden;
 }
 
-/* ----- HEADER ----- */
 .chat-header {
   background-color: #84796a;
   color: #fff;
@@ -38,7 +35,6 @@ body {
   font-size: 20px;
 }
 
-/* ----- CHAT CONTAINER (MESSAGES) ----- */
 .chat-container {
   flex: 1;
   overflow-y: auto;
@@ -51,6 +47,7 @@ body {
 .chat-container::-webkit-scrollbar {
   width: 6px;
 }
+
 .chat-container::-webkit-scrollbar-thumb {
   background: #c9c9c9;
   border-radius: 10px;
@@ -83,9 +80,8 @@ body {
   color: #0077b6;
   font-weight: 600;
   padding: 2px 6px;
-  border-radius: 8px;
-  display: inline-block;
 }
+
 .doctor::before {
   content: "🩺 ";
 }
@@ -104,6 +100,7 @@ body {
   display: inline-flex;
   gap: 4px;
 }
+
 .typing-dots span {
   width: 6px;
   height: 6px;
@@ -112,19 +109,16 @@ body {
   opacity: 0.3;
   animation: blink 1.4s infinite both;
 }
+
 .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
 .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
-
-@keyframes blink {
-  0%, 80%, 100% { opacity: 0.3; }
-  40% { opacity: 1; }
-}
 
 .input-area {
   display: flex;
   padding: 15px;
   border-top: 1px solid #ddd;
   background-color: #84796a;
+  position: relative;
 }
 
 .input-area textarea {
@@ -136,7 +130,6 @@ body {
   padding: 10px;
   border-radius: 10px;
   background-color: #fff;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
   height: 50px;
 }
 
@@ -155,17 +148,22 @@ body {
   background-color: #bda17f;
 }
 
+@keyframes blink {
+  0%, 80%, 100% { opacity: 0.3; }
+  40% { opacity: 1; }
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 600px) {
+
   body {
-    height: auto;
-    padding: 0;
-    align-items: flex-start;
+    height: 100vh;
     overflow: hidden;
+    align-items: stretch;
   }
 
   .chat-wrapper {
@@ -183,7 +181,7 @@ body {
   .chat-container {
     padding: 10px 12px;
     gap: 4px;
-    height: calc(100vh - 155px);
+    height: calc(100vh - 140px);
   }
 
   .input-area {
@@ -193,6 +191,7 @@ body {
   .input-area textarea {
     font-size: 15px;
     padding: 8px;
+    height: 45px;
   }
 
   .input-area button {
